@@ -1,3 +1,4 @@
+import 'package:firebase_chat_app/services/alert_services.dart';
 import 'package:firebase_chat_app/services/auth_service.dart';
 import 'package:firebase_chat_app/services/navigation_service.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class _HomePageState extends State<HomePage> {
  final GetIt _getIt = GetIt.instance;
  late AuthService _authService;
  late NavigationService _navigationService;
+ late AlertService _alertService;
 
  @override
   void initState() {
@@ -21,6 +23,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _authService = _getIt.get<AuthService>();
     _navigationService = _getIt.get<NavigationService>();
+    _alertService = _getIt.get<AlertService>();
   }
 
 
@@ -32,6 +35,7 @@ class _HomePageState extends State<HomePage> {
         actions: [IconButton(onPressed: ()async{
           bool result = await _authService.logout();
           if(result){
+            _alertService.showToast(text: "Succesfully logged out", icon: Icons.check);
             _navigationService.pushReplacementNamed("/login");
           }
         }, 
