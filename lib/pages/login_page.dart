@@ -1,10 +1,8 @@
-import 'package:firebase_chat_app/consts.dart';
 import 'package:firebase_chat_app/services/alert_services.dart';
 import 'package:firebase_chat_app/services/auth_service.dart';
 import 'package:firebase_chat_app/services/navigation_service.dart';
 import 'package:firebase_chat_app/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 
 class LoginPage extends StatefulWidget {

@@ -25,6 +25,21 @@ User? _user;
     }
     return false;
   }
+
+  Future<bool>signup(String email, String password)async{
+    try {
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email, password: password);
+        if(credential.user != null){
+          _user = credential.user;
+          return true;
+        }
+    } catch (e) {
+      print(e);
+    }
+    return false;
+  }
+
   Future<bool> logout()async{
 try{
   await _firebaseAuth.signOut();
